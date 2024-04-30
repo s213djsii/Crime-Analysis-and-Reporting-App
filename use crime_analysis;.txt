@@ -1,0 +1,110 @@
+use crime_analysis;
+show tables;
+INSERT INTO incident (incident_type, incident_date, location, description, status, officers_id) VALUES
+('Burglary', '2024-03-12', ' Main Street', 'Residential burglary reported with items stolen.', 'Investigating', 1),
+('Assault', '2024-03-13', ' Elm Street', 'Physical assault occurred at a local bar.', 'Under investigation', 2),
+('Fraud', '2024-03-14', ' Oak Avenue', 'Identity theft reported with fraudulent transactions.', 'Pending', 3),
+('Robbery', '2024-03-10', 'Maple Avenue', 'Armed robbery at a convenience store.', 'Under investigation', 4),
+('Vandalism', '2024-03-11', 'Cedar Street', 'Property vandalism reported at a local park.', 'Investigating', 5),
+('Theft', '2024-03-09', 'Pine Road', 'Shoplifting incident reported at a retail store.', 'Closed', 6),
+('robbery','2024-02-25','Near mumbai railway station','The whole jewellery and the money was taken away','open',1),
+('theft','2024-03-05','in the college bus,vizianagaram','Mobile phone theft while going to college in bus','closed',2),
+('homicide','2024-02-20','at bihar,patna','A person was killed by someone brutally','under investigation',1),
+('robbery','2024-02-25','Near mumbai railway station','The whole jewellery and the money was taken away','open',1),
+('theft','2024-03-05','in the college bus,vizianagaram','Mobile phone theft while going to college in bus','closed',2),
+('homicide','2024-02-20','at bihar,patna','A person was killed by someone brutally','under investigation',8) ;
+
+INSERT INTO agencies (agencies_name, jurisdiction, contact_info) VALUES
+('MI6', 'south_chennai','8744468457'),
+('FBI', 'north_delhi', '8977543792'),
+('CIA', 'central_bangalore', '9864329871'),
+('NCRB', 'south_hyderabad','9983571234');
+
+INSERT INTO officers (first_name, last_name, badge_number, rank, contact_info, agencies_id) VALUES
+('Priya', 'Sharma', 'PS123', 2, '98765 43210', 1),
+('Aisha', 'Khan', 'AK456', 3, '98765 54321', 2),
+('Neha', 'Patel', 'DS789', 1, '9876543210', 3),
+('Rahul', 'Gupta', 'EJ654', 2, '9876543211', 4),
+('Rohit', 'Kumar', 'JB321', 3, '9876543212', 1),
+('mark', 'andrason', 'AB1234', 5, '9988776655', 2),
+('ravit', 'Kumar', 'EB321', 9, '9898767655', 4),
+('jack', 'sparrow','BE521', 9, '9708070053', 3);
+select * from officers;
+set foreign_key_checks=0;
+delete from officers;
+set foreign_key_checks=1;
+
+INSERT INTO reports (report_date, report_details, status, incident_id) VALUES
+('2024-03-15', 'Report filed with eyewitness testimonies.', 'Pending', 13),
+('2024-03-16', 'Forensic analysis completed.', 'Investigating', 15),
+('2024-03-17', 'Suspect identified and apprehended.', 'Closed', 14),
+('2024-03-18', 'Investigation ongoing; additional evidence collected.', 'Investigating', 16),
+('2024-03-19', 'Interviews with witnesses conducted.', 'Investigating', 18),
+('2024-03-20', 'Surveillance footage reviewed; suspect movements tracked.', 'Under investigation', 20),
+('2024-02-26', 'Initial investigation started. Witnesses being interviewed.', 'pending', 17),
+('2024-03-06', 'Theft reported by multiple passengers. Investigation initiated.', 'closed', 19),
+('2024-02-21', 'Crime scene investigation ongoing. Suspect identification in progress.', 'under investigation', 22),
+('2024-03-11', 'Autopsy completed. Cause of death determined. Investigation concluded.', 'closed', 24),
+('2024-03-16', 'Victim statement recorded. Investigation ongoing.', 'pending', 23),
+('2024-03-19', 'Forensic analysis in progress. Suspect identification efforts intensified.', 'under investigation', 21);
+
+INSERT INTO victim (first_name, last_name, dob, gender, contact_info, incident_id) VALUES
+('Michael', 'Corleone', '1990-04-20', 'Male','7859641256', 13),
+('Vito', 'Corleone', '1991-12-07', 'Male', '9874521354', 14),
+('Tony', 'Montana', '1985-06-22', 'Male','7845698123', 22),
+('Frank', 'Underwood', '1988-08-05', 'Male','8457962145', 23),
+('Sarah', 'Connor', '1972-05-15', 'Female','7896541230', 22),
+('John', 'Doe', '1993-09-10', 'Male', '7854123698', 24),
+('Jane', 'Doe', '1995-11-20', 'Female', '7523641890', 15),
+('Alice', 'Smith', '1980-03-25', 'Female','7986541236', 24),
+('Srinivas', 'Rao', '1985-04-12', 'male','9988776655', 21),
+('Lakshmi', 'Patel', '1990-07-23', 'female','9966332211', 16),
+('Venkata', 'Chowdary', '1982-09-15', 'male','9944221133', 17),
+('Padma', 'Reddy', '1993-11-30', 'female','9922114455', 18),
+('Muntasir','M','2003-02-26','male','7824913481',19),
+('tasir','Z','2003-02-20','male','7824913480',20),
+('Thameem','Ahammed','2003-12-26','male','7824913491',17),
+('Ahammed','T','2010-01-26','male','7824903481',13);
+
+INSERT INTO suspect (id,first_name, last_name, dob, gender, contact_info, incident_id) VALUES
+(1,'Sherlock', 'Holmes', '1954-01-06', 'Male','8745213698', 13),
+(2,'John', 'Watson', '1992-09-07', 'Male','7213458975', 14),
+(3,'Irene', 'Adler', '1998-05-15', 'Female', '9955478612', 22),
+(4,'James', 'Moriarty', '1994-11-19', 'Male','8745968874', 23),
+(5,'Hannibal', 'Lecter', '1963-04-20', 'Male','7856320145', 24),
+(6,'Norman', 'Bates', '1960-06-22', 'Male','7896541230', 18),
+(7,'Regina', 'George', '1985-09-05', 'Female','7523641890', 17),
+(8,'Patrick', 'Bateman', '1967-03-30', 'Male','7986541236', 16),
+(9,'John', 'Doe', '1980-04-01', 'male', '9355501011', 15),
+(10,'Mike', 'Smith', '1975-06-03', 'male','7515550103', 19),
+(11,'Omar', 'Jones', '1988-08-05', 'male','9855550105', 21),
+(12,'Fitzwilliam', 'Darcy', '1987-11-28', 'Male','9876543211', 17),
+(13,'Harry', 'Potter', '1980-07-31', 'Male','9876543213', 20),
+(14,'Katniss', 'Everdeen', '1995-05-08', 'Female','9876543214', 17),
+(15,'Peeta', 'Mellark', '1993-02-14', 'Male','9876543215', 20),
+(16,'Mycroft', 'Holmes', '1987-09-12', 'Male','7745871236', 23),
+(17,'Jane', 'Doe', '1982-05-02', 'female','9255501020', 20),
+(18,'Lucy', 'Brown', '1990-07-04', 'female','7625550104', 21),
+(19,'Elizabeth', 'Bennet', '1989-03-15', 'Female','9876543210', 15),
+(20,'Hermione', 'Granger', '1979-09-19', 'Female','9876543212', 16);
+
+
+INSERT INTO evidence (description, location_found, incident_id) VALUES
+('girl found in yoka bar.', '123 Industrial Avenue', 13),
+('Stolen items recovered in parking lot.', '456 Main Street', 14),
+('Financial records manipulated to embezzle funds from company accounts.', '789 Museum Street', 15),
+('Identity theft scam discovered with fraudulent accounts opened using stolen personal information.', '101  Lane', 16),
+('Fingerprint evidence collected from the crime scene', '222 Park Avenue', 17),
+('Surveillance footage obtained from nearby businesses.', '333 Elm Street', 18),
+('Drug paraphernalia found in suspect residence.', '444 Oak Road', 19),
+('Digital evidence recovered from suspect electronic devices.', '555 Maple Lane', 20),
+('Security camera footage showing the suspect stealing the camera.', 'Colaba Causeway, Mumbai', 21),
+('Purchase receipt of the stolen camera from a nearby shop.', 'Colaba Causeway, Mumbai', 22),
+('Autopsy report indicating cause of death as drowning.', 'Powai Lake, Mumbai', 23),
+('Evidence of struggle near the shoreline.', 'Powai Lake, Mumbai', 24);
+INSERT INTO evidence (description, location_found, incident_id) VALUES
+('forced entry windows broken','theft house',21),
+('murder equipment rope strangled to death','victim house',22),
+('crowbar found','victim’s master bedroom',13),
+('blood stains','over the walls of the victim room',17);
+
